@@ -23,6 +23,12 @@ const mostraRelogioAtual = function()
     let segundos = agora.getSeconds();
     console.log(segundos)
 
+    const texto_relogio = getRelogioInterno(horas, minutos, segundos)
+    // // -> @TODO: ETAPA 2: COLOQUE O RELÓGIO AQUI
+    const relogio = document.getElementById('relogio');
+    relogio.innerHTML = texto_relogio; //Aqui vai o texto do relogio.
+}
+    const getRelogioInterno = function(horas, minutos, segundos){
     let meridiano = "AM";
 
     // Define formato meridiano
@@ -50,10 +56,7 @@ const mostraRelogioAtual = function()
     }
 
     // // coloca tudo junto e monta o relógio
-    const texto_relogio = horas + ':' + minutos + ':' + segundos + " " + meridiano + "!";
-    // // -> @TODO: ETAPA 2: COLOQUE O RELÓGIO AQUI
-    const relogio = document.getElementById('relogio');
-    relogio.innerHTML = texto_relogio; //Aqui vai o texto do relogio.
+    return horas + ':' + minutos + ':' + segundos + " " + meridiano + "!";
 
 };
 
@@ -62,6 +65,25 @@ const mostraRelogioAtual = function()
     // -> @TODO: IMPLEMENTAR ATUALIZAÇÃO AO VIVO DO RELÓGIO
     // ETAPA 1: Descubra como repetir uma função em intervalo de um segundo e coloque
     // a função mostraRelogioAtual() em loop
-    setInterval(mostraRelogioAtual,1000);
+        vinteQuatro()
+
+}
+
+let intervalID = null;
+
+let limpar = function(){
+    if (intervalID ){
+        clearInterval(intervalID)
+        intervalID = null
+    }
+    editaRelogio()
+}
+
+let vinteQuatro = function(){
+    let d = new Date();
+    let t = d.toLocaleTimeString('pt-PT', {hour12: false});
+    document.getElementById('relogio').innerHTML = getRelogioInterno(d.getHours(), d.getMinutes(), d.getSeconds());
+    //relogio.innerHTML = "00:00:00 AM!"
+    intervalID =  setInterval(mostraRelogioAtual,1000);
 
 }
