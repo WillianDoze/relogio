@@ -27,6 +27,8 @@ const mostraRelogioAtual = function()
     // // -> @TODO: ETAPA 2: COLOQUE O RELÓGIO AQUI
     const relogio = document.getElementById('relogio');
     relogio.innerHTML = texto_relogio; //Aqui vai o texto do relogio.
+
+    vinteQuatro()
 }
     const getRelogioInterno = function(horas, minutos, segundos){
     let meridiano = "AM";
