@@ -62,6 +62,6 @@ const mostraRelogioAtual = function()
     // -> @TODO: IMPLEMENTAR ATUALIZAÇÃO AO VIVO DO RELÓGIO
     // ETAPA 1: Descubra como repetir uma função em intervalo de um segundo e coloque
     // a função mostraRelogioAtual() em loop
-    setInterval(mostraRelogioAtual,1000)
+    setInterval(mostraRelogioAtual,1000);
 
 }
