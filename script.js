@@ -84,7 +84,7 @@ let limpar = function(){
 let vinteQuatro = function(){
     let d = new Date();
     let t = d.toLocaleTimeString('pt-PT', {hour12: false});
-    document.getElementById('relogio').innerHTML = getRelogioInterno(d.getHours(), d.getMinutes(), d.getSeconds());
+    document.getElementById('relogio').innerHTML = t; //getRelogioInterno(d.getHours(), d.getMinutes(), d.getSeconds());
     //relogio.innerHTML = "00:00:00 AM!"
     intervalID =  setInterval(mostraRelogioAtual,1000);
 
